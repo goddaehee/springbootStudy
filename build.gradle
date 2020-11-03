@@ -1,0 +1,38 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'com.god'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	//mavenCentral()
+	maven { url 'http://10.154.17.205:8091/nexus/content/groups/public/' }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	//compile files('libs/client-combined-3.141.59')
+	compile fileTree(dir: 'libs', include: ['*.jar'])
+
+	compile('org.springframework.boot:spring-boot-starter-web')
+
+	compile('org.apache.tomcat.embed:tomcat-embed-jasper')
+	compile('javax.servlet:jstl:1.2')
+
+	compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.3.5.RELEASE'
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+test {
+	useJUnitPlatform()
+}
