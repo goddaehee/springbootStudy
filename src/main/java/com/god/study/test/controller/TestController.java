@@ -1,6 +1,8 @@
 package com.god.study.test.controller;
 
+import com.god.study.test.service.TestService;
 import com.god.study.test.vo.TestVo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +14,9 @@ import java.util.List;
 
 @Controller
 public class TestController {
+
+    @Autowired
+    TestService testService;
 
     @RequestMapping(value = "/home")
     public String home() {
@@ -36,14 +41,20 @@ public class TestController {
     @RequestMapping("/test")
     public ModelAndView test() throws Exception {
         ModelAndView mav = new ModelAndView("test");
+        /*
         mav.addObject("name", "goddaehee");
 
         List<String> testList = new ArrayList<String>();
         testList.add("a");
         testList.add("b");
-        testList.add("c");
+        testList.add("c");*/
+
+        List<TestVo> testList = testService.selectTest();
 
         mav.addObject("list", testList);
+
+        List<TestVo> testList2 = testService.selectTest();
+
         return mav;
     }
 

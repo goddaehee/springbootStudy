@@ -7,10 +7,16 @@
     <title>View Test Page</title>
 </head>
 <body>
-<h2>Hello! ${name}</h2>
-<div>JSP List Test</div>
+    <%--<h2>Hello! ${name}</h2>
+    <div>JSP List Test</div>
     <c:forEach var="item" items="${list}" varStatus="idx">
         ${idx.index}, ${item} <br />
+    </c:forEach>--%>
+
+    <h2>Hello!</h2>
+    <div>JSP List Test</div>
+    <c:forEach var="item" items="${list}" varStatus="idx">
+        ${idx.index}st, Hello! ${item.name} <br />
     </c:forEach>
 </body>
 </html>
