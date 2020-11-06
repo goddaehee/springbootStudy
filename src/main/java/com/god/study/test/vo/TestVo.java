@@ -1,5 +1,16 @@
 package com.god.study.test.vo;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
+
+@Builder
+@Getter
+@Setter
+@ToString
+@Slf4j
 public class TestVo {
     private Long mbrNo;
     private String id;

@@ -2,6 +2,8 @@ package com.god.study.test.controller;
 
 import com.god.study.test.service.TestService;
 import com.god.study.test.vo.TestVo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import java.util.List;
 
 @Controller
 public class TestController {
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     TestService testService;
@@ -50,10 +53,13 @@ public class TestController {
         testList.add("c");*/
 
         List<TestVo> testList = testService.selectTest();
-
         mav.addObject("list", testList);
 
-        List<TestVo> testList2 = testService.selectTest();
+        logger.trace("TRACE Level 테스트");
+        logger.debug("DEBUG Level 테스트");
+        logger.info("INFO Level 테스트");
+        logger.warn("WARN Level 테스트");
+        logger.error("ERROR Level 테스트");
 
         return mav;
     }
