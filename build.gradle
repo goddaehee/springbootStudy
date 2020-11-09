@@ -32,8 +32,18 @@ dependencies {
 	//compile 'org.projectlombok:lombok:1.18.16'
 	//providedCompile 'org.projectlombok:lombok:1.18.16'
 	//compile group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
+	//compileOnly 'org.projectlombok:lombok'
+
+	// gradle5 조심
+	/*annotationProcessor 'org.projectlombok:lombok'
+	implementation 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.projectlombok:lombok'*/
+
 	compileOnly 'org.projectlombok:lombok'
+	testCompileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
 
 	//compile 'org.springframework.boot:spring-boot-starter-jdbc'
 
@@ -42,6 +52,14 @@ dependencies {
 
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
+
+//  Gradle wrapper  생성
+/*task wrapper(type: Wrapper) {
+	gradleVersion = '2.2.1' // 원하는 Gradle 버전
+}*/
+
+// 초기화 수행
+//apply from: 'init.gradle'
 
 test {
 	useJUnitPlatform()
