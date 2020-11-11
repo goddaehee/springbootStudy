@@ -1,0 +1,18 @@
+
+rootProject.ext {
+    //  배포를 위한 프로필 설정 판단
+    profile = System.properties['profile'] == null ? "local" : System.properties['profile']
+
+    // Jenkins 에서 읽어온 값을 사용함.  Jenkins  자체에서는 스크립트가 실행되는 프로세스에 http://192.168.0.44/jenkins/env-vars.html/?   와 같은 환경 변수를 넘겨주지만,
+    // JVM은  구동시 -D 옵션으로 명시적으로 넘겨준 값 이외의 환경변수는 보안상의 이유로 모두 무시한다. 따라서  Jenins 에서  Gradle Switches 옵션에  -DSVN_REVISION=${SVN_REVISION}  처럼 명시적으로 옵션을 주어야 한다.
+
+    //SVN_REVISION = System.properties['SVN_REVISION'] == null ? "UNKNOWN": System.properties['SVN_REVISION']
+    timestamp = new Date()
+
+}
+
+//println "Build Profile: ${profile}"
+//println "SVN_REVISION: ${SVN_REVISION}"
+
+//  프로필에 따라 달라지는 설정들을 읽어 온다.
+//apply from: 	"profile_${profile}.gradle"
