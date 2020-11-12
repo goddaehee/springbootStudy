@@ -19,6 +19,7 @@ public class TestVo {
     public TestVo() {
     }
 
+    @Builder
     public TestVo(String id, String name) {
         this.id = id;
         this.name = name;

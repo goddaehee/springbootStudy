@@ -4,5 +4,32 @@
     <select id="selectTest" resultType="TestVo">
         SELECT 'GOD' AS NAME
     </select>
+
+    <select id="selectData"  parameterType="hashMap" resultType="hashMap">
+        <!-- 쿼리문 -->
+        SELECT 'GOD' AS NAME
+    </select>
+
+    <insert id="insertData" parameterType="hashMap">
+        <!-- 쿼리문 -->
+        INSERT INTO MEMBER_TEST (MBR_NO, MBR_NM) VALUES (#{mbrNo}, #{mbrNm})
+    </insert>
+
+    <update id="updateData" parameterType="hashMap">
+        <!-- 쿼리문 -->
+        UPDATE  MEMBER_TEST
+        SET     MBR_NM = #{mbrNm}
+        WHERE   MBR_NO = #{mbrNo}
+    </update>
+
+    <delete id="deleteData" parameterType="hashMap">
+        <!-- 쿼리문 -->
+        DELETE FROM MEMBER_TEST WHERE MBR_NO = #{mbrNo}
+    </delete>
+
+    <select id="selectOneMember" resultType="TestVo">
+        <!-- 쿼리문 -->
+        SELECT * FROM MEMBER WHERE MBR_NO = #{mbrNo}
+    </select>
 </mapper>
 
