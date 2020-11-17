@@ -1,0 +1,76 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!--<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    &lt;!&ndash;<title th:text="${'status' : ' status  + 'Error Page!!'}"></title>&ndash;&gt;
+    <title th:text="${'status: ' + status}"></title>
+    &lt;!&ndash; for-mobile-apps &ndash;&gt;
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    &lt;!&ndash;<meta name="keywords" content="Cool 404 Page Widget Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />&ndash;&gt;
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+    function hideURLbar(){ window.scrollTo(0,1); } </script>
+    &lt;!&ndash; //for-mobile-apps &ndash;&gt;
+    <link href="/error/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href='//fonts.googleapis.com/css?family=Viga' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="main">
+    <div class="nav_w3l">
+        <ul>
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="index.html" class="hvr-sweep-to-bottom">About Us</a></li>
+            <li><a href="index.html" class="hvr-sweep-to-bottom">Portfolio</a></li>
+            <li><a href="index.html" class="hvr-sweep-to-bottom">Services</a></li>
+            <li><a href="index.html" class="hvr-sweep-to-bottom">Mail Us</a></li>
+        </ul>
+    </div>
+    &lt;!&ndash;<h1>404</h1>&ndash;&gt;
+    <h1 th:text="${status}"></h1>
+    <h2>ooops, something goes wrong</h2>
+    <div class="more_w3ls">
+        <a href="javascript:history.back();">GO BACK!</a>
+    </div>
+    <div class="wthree_social_icons">
+        <div>
+            <a href="#"><span>Facebook</span></a>
+            <a href="#"><span>Twitter</span></a>
+            <a href="#"><span>Tumblr</span></a>
+            <a href="#"><span>LinkedIn</span></a>
+            <a href="#"><span>Vimeo</span></a>
+        </div>
+    </div>
+    <div class="copyright">
+        <p><a href="/">Go To home!</a></p>
+        &lt;!&ndash;<p>© 2016 Cool 404 Page Widget. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>&ndash;&gt;
+    </div>
+</div>
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Test Error Page!</title>
+    <!--<link rel="stylesheet" th:href="@{/css/style.css}"></link>-->
+</head>
+<body>
+<div class="errorPage">
+    <span class="errorHead">Error!</span><br />
+    <p th:text="${'path: ' + path}"></p>
+    <p th:text="${'status: ' + status}"></p>
+    <p th:text="${'timestamp: ' + timestamp}"></p>
+    <p th:text="${'error: ' + error}"></p>
+    <p th:text="${'errors: ' + errors}"></p>
+    <p th:text="${'exception: ' + exception}"></p>
+    <p th:text="${'message: ' + message}"></p>
+    <p th:text="${'trace: ' + trace}"></p>
+</div>
+</body>
+</html>
