@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Optional;
 
 @Controller
 @Slf4j
@@ -63,6 +64,25 @@ public class CustomErrorController implements ErrorController {
 
         if (status != null) {
             Integer statusCode = Integer.valueOf(status.toString());
+            modelAndView.addObject("statusCode", statusCode);
+            /*Optional<Object> exception = (Optional<Object>) request.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
+            Optional<Object> request_uri= (Optional<Object>) request.getAttribute(RequestDispatcher.FORWARD_REQUEST_URI);
+            Optional<Object> servlet_name= (Optional<Object>) request.getAttribute(RequestDispatcher.ERROR_SERVLET_NAME);
+            Optional<Object> message= (Optional<Object>) request.getAttribute(RequestDispatcher.ERROR_MESSAGE);*/
+
+            /*if (exception.isPresent()) {
+                modelAndView.addObject("exception", exception.get().toString());
+            }
+
+            if (request_uri.isPresent()) {
+                modelAndView.addObject("request_uri", request_uri.get().toString());
+            }*/
+
+            /*modelAndView.addObject("exception", (Object)(RequestDispatcher.ERROR_EXCEPTION).toString());
+            modelAndView.addObject("request_uri", RequestDispatcher.FORWARD_REQUEST_URI.toString());
+            modelAndView.addObject("servlet_name", RequestDispatcher.ERROR_SERVLET_NAME.toString());
+            modelAndView.addObject("message", RequestDispatcher.ERROR_MESSAGE.toString());*/
+
             if (statusCode == HttpStatus.NOT_FOUND.value()) {
                 modelAndView.setViewName(VIEW_PATH + "404");
             } else if (statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {

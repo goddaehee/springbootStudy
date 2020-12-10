@@ -17,13 +17,18 @@
     <p th:text="${'exception: ' + exception}"></p>
     <p th:text="${'message: ' + message}"></p>
     <p th:text="${'trace: ' + trace}"></p>-->
-    <p th:text="${'path: ' + path}">
-    <p>가 : ${path}</p>
-    <p>timestamp : {{timestamp}}</p>
+    <p th:text="${'path: ' + statusCode}">
+    <p th:text="${'path: ' + exception}">
+    <p th:text="${'path: ' + request_uri}">
+    <p th:text="${'path: ' + servlet_name}">
+    <p th:text="${'path: ' + message}">
+
+    <!--<p>가 : ${statusCode}</p>
+    <p>statusCode : {{statusCode}}</p>
     <p>status : {{status}}</p>
     <p>error : {{error}}</p>
     <p>message : {{message}}</p>
-    <p>path : {{path}}</p>
+    <p>path : {{path}}</p>-->
 </div>
 </body>
 </html>
