@@ -9,8 +9,8 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
-	//mavenCentral()
-	maven { url 'http://10.154.17.205:8091/nexus/content/groups/public/' }
+	mavenCentral()
+	//maven { url 'http://10.154.17.205:8091/nexus/content/groups/public/' }
 }
 
 dependencies {
@@ -21,6 +21,8 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 	compile 'org.springframework.boot:spring-boot-starter-web'
 	compile 'org.springframework.boot:spring-boot-devtools'
 	compile 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.3'

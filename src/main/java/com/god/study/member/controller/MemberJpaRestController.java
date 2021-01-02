@@ -1,7 +1,7 @@
-package com.god.study.jpaTest.controller;
+package com.god.study.member.controller;
 
-import com.god.study.jpaTest.service.MemberService;
-import com.god.study.jpaTest.vo.MemberVo;
+import com.god.study.member.service.MemberService;
+import com.god.study.member.vo.MemberVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +14,17 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("memberTest")
-public class TestJpaRestController {
+@RequestMapping("member")
+public class MemberJpaRestController {
     // 기본형
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Autowired
-    MemberService memberService;
+    /*@Autowired*/
+    private final MemberService memberService;
+
+    public MemberJpaRestController(MemberService memberService){
+        this.memberService = memberService;
+    }
 
     // 모든 회원 조회
     @GetMapping(produces = { MediaType.APPLICATION_JSON_VALUE })
@@ -52,13 +56,13 @@ public class TestJpaRestController {
 
     // 회원 입력
     @PostMapping
-    public ResponseEntity<MemberVo> save(MemberVo member) {
+    public ResponseEntity<MemberVo> save(MemberVo member) throws Exception {
         return new ResponseEntity<MemberVo>(memberService.save(member), HttpStatus.OK);
     }
 
     // 회원 입력
     @RequestMapping(value="/saveMember", method = RequestMethod.GET)
-    public ResponseEntity<MemberVo> save(HttpServletRequest req, MemberVo member){
+    public ResponseEntity<MemberVo> save(HttpServletRequest req, MemberVo member) throws Exception {
         return new ResponseEntity<MemberVo>(memberService.save(member), HttpStatus.OK);
     }
 

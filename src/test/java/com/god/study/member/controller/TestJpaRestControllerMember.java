@@ -1,8 +1,8 @@
-package com.god.study.jpaTest.controller;
+package com.god.study.member.controller;
 
-import com.god.study.jpaTest.repository.MemberRepository;
-import com.god.study.jpaTest.service.MemberService;
-import com.god.study.jpaTest.vo.MemberVo;
+import com.god.study.member.repository.MemberRepository;
+import com.god.study.member.service.MemberService;
+import com.god.study.member.vo.MemberVo;
 import com.god.study.test.service.TestService;
 import com.god.study.test.vo.TestVo;
 import lombok.extern.slf4j.Slf4j;
@@ -19,8 +19,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.ResultMatcher;
-import org.springframework.test.web.servlet.setup.DefaultMockMvcBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
@@ -33,7 +31,6 @@ import javax.transaction.Transactional;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -51,7 +48,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Transactional
 @AutoConfigureMockMvc
 @Slf4j
-class TestJpaRestControllerTest {
+class TestJpaRestControllerMember {
 
     @Value("${testId}")
     private String testId;
@@ -116,8 +113,8 @@ class TestJpaRestControllerTest {
         /******** START : MockBean test **********/
         log.info("******** START : MockBean test **********");
         MemberVo memberVo = MemberVo.builder()
-                .id("goddaehee2")
-                .name("갓대희")
+                .mbrId("goddaehee2")
+                .mbrNm("갓대희")
                 .build();
 
         given(memberRepository.findById(28L))
@@ -130,8 +127,8 @@ class TestJpaRestControllerTest {
             // assertThat(memberVo.getName()).isEqualTo(member.get().getName());
 
             // Junit5 BDD 사용시
-            then("goddaehee").isEqualTo(member.get().getId());
-            then("갓대희").isEqualTo(member.get().getName());
+            then("goddaehee").isEqualTo(member.get().getMbrId());
+            then("갓대희").isEqualTo(member.get().getMbrNm());
         }
         log.info("******** END : MockBean test **********");
         /******** END : MockBean test **********/

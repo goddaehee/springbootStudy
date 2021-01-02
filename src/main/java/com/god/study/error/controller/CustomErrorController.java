@@ -44,7 +44,7 @@ public class CustomErrorController implements ErrorController {
         return "error";
     }*/
 
-    @RequestMapping("/error")
+    /*@RequestMapping("/error")
     public ModelAndView handleError(HttpServletRequest request, HttpServletResponse response) {
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
         ModelAndView modelAndView = new ModelAndView();
@@ -65,23 +65,23 @@ public class CustomErrorController implements ErrorController {
         if (status != null) {
             Integer statusCode = Integer.valueOf(status.toString());
             modelAndView.addObject("statusCode", statusCode);
-            /*Optional<Object> exception = (Optional<Object>) request.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
+            *//*Optional<Object> exception = (Optional<Object>) request.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
             Optional<Object> request_uri= (Optional<Object>) request.getAttribute(RequestDispatcher.FORWARD_REQUEST_URI);
             Optional<Object> servlet_name= (Optional<Object>) request.getAttribute(RequestDispatcher.ERROR_SERVLET_NAME);
-            Optional<Object> message= (Optional<Object>) request.getAttribute(RequestDispatcher.ERROR_MESSAGE);*/
+            Optional<Object> message= (Optional<Object>) request.getAttribute(RequestDispatcher.ERROR_MESSAGE);*//*
 
-            /*if (exception.isPresent()) {
+            *//*if (exception.isPresent()) {
                 modelAndView.addObject("exception", exception.get().toString());
             }
 
             if (request_uri.isPresent()) {
                 modelAndView.addObject("request_uri", request_uri.get().toString());
-            }*/
+            }*//*
 
-            /*modelAndView.addObject("exception", (Object)(RequestDispatcher.ERROR_EXCEPTION).toString());
+            *//*modelAndView.addObject("exception", (Object)(RequestDispatcher.ERROR_EXCEPTION).toString());
             modelAndView.addObject("request_uri", RequestDispatcher.FORWARD_REQUEST_URI.toString());
             modelAndView.addObject("servlet_name", RequestDispatcher.ERROR_SERVLET_NAME.toString());
-            modelAndView.addObject("message", RequestDispatcher.ERROR_MESSAGE.toString());*/
+            modelAndView.addObject("message", RequestDispatcher.ERROR_MESSAGE.toString());*//*
 
             if (statusCode == HttpStatus.NOT_FOUND.value()) {
                 modelAndView.setViewName(VIEW_PATH + "404");
@@ -92,9 +92,7 @@ public class CustomErrorController implements ErrorController {
             } else modelAndView.setViewName("/errorPage/common");
         }
         return modelAndView;
-    }
-
-
+    } */
 
     @Override
     /* 스프링 부트 2.3.x부터 다음 메서드는 deprecated 되었음.

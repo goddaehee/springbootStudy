@@ -1,7 +1,7 @@
-package com.god.study.jpaTest.service;
+package com.god.study.member.service;
 
-import com.god.study.jpaTest.repository.MemberRepository;
-import com.god.study.jpaTest.vo.MemberVo;
+import com.god.study.member.repository.MemberRepository;
+import com.god.study.member.vo.MemberVo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.client.RestClientTest;
@@ -11,7 +11,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.client.MockRestServiceServer;
 
 import static org.assertj.core.api.BDDAssertions.then;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
@@ -39,7 +38,7 @@ class MemberServiceTest {
         // assertThat("갓대희"").isEqualTo(member..getName());
 
         // Junit5 BDD 사용시
-        then("goddaehee2").isEqualTo(member.getId());
-        then("갓대희").isEqualTo(member.getName());
+        then("goddaehee2").isEqualTo(member.getMbrId());
+        then("갓대희").isEqualTo(member.getMbrNm());
     }
 }
